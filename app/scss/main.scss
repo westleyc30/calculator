@@ -1,13 +1,108 @@
+html {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, hsl(23,78%,76%), hsl(16,71%,65%));
+}
 .container {
     margin: 0 auto;
-    width: 500px;
+    height: auto;
+    width: 400px;
+    box-shadow: 0 0 7px hsla(0, 0%, 15%, .6);
+}
+.formula {
+    width: 100%;
+    height: 35px;
+    background: hsla(0, 0%, 78%, .6);
+    color: hsla(0, 0%, 30%, .6);
+    // color:;
+    text-align: right;
+    // padding: 0 15px 0 0;
+    padding-top: 13px;
+    padding-right: 10px;
+}
+.display {
+    background: hsla(0, 0%, 100%, .8);
+    color: hsla(0,0%,0%,.8);
+    margin: 0;
+    padding-top: 15px;
+    padding-right: 10px;
+    border: none;
+    width: 400px;
+    height: 100px;
+    text-align: right;
+    font-size: 2em;
+}
+.buttons {
+    width: 400px; height: 500px;
+}
+.row {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    height: 20%;
+}
+.btn {
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    border: none;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
 }
 .other {
     background-color: hsl(0, 0%, 78%);
+    // flex-grow: 1;
+    width: 25%;
+    &:hover {
+        background-color: hsl(0,0,82%);
+    }
 }
 .math {
     background-color: hsl(180, 1%, 62%);
+    // flex-grow: 1;
+    width: 25%;
+    &:hover {
+        background-color: hsl(180,1%,67%);
+    }
+}
+.number {
+    // flex-grow: 1;
+    background: hsl(0,0,75%);
+    width: 25%;
+    // text-align: center;
+    &:hover {
+        background: hsl(0,0,80%);
+    }
 }
 .equals {
     background-color: hsl(34, 83%, 54%);
+    // flex-grow: 2;
+    width: 50%;
+    &:hover {
+        background: hsl(34,83%,59%);
+    }
+}
+.clear {
+    background-color: hsl(0, 0%, 78%);
+    // flex-grow: 2;
+    width: 50%;
+    &:hover {
+        background-color: hsl(0,0,82%);
+    }
 }
