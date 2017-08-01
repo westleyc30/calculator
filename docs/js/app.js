@@ -1,34 +1,58 @@
+const one = document.querySelector('#one')
+const two = document.querySelector('#two')
+const three = document.querySelector('#three')
+const four = document.querySelector('#four')
+const five = document.querySelector('#five')
+const six = document.querySelector('#six')
+const seven = document.querySelector('#seven')
+const eight = document.querySelector('#eight')
+const nine = document.querySelector('#nine')
+const zero = document.querySelector('#zero')
+
+const add = document.querySelector('#add');
+const subtract = document.querySelector('#subtract');
+const divide = document.querySelector('#multiply');
+const multiply = document.querySelector('#divide');
+const decimal = document.querySelector('#decimal');
+
+const equals = document.querySelector('#equals');
+const clear = document.querySelector('#clear');
+
+const display = document.querySelector('.display');
+const formula = document.querySelector('.formula')
+// const add = document.querySelector('#')
+
 // NUMBERS
-document.querySelector('#one').onclick   = function(){setDisplay(1);};
-document.querySelector('#two').onclick   = function(){setDisplay(2);};
-document.querySelector('#three').onclick = function(){setDisplay(3);};
-document.querySelector('#four').onclick  = function(){setDisplay(4);};
-document.querySelector('#five').onclick  = function(){setDisplay(5);};
-document.querySelector('#six').onclick   = function(){setDisplay(6);};
-document.querySelector('#seven').onclick = function(){setDisplay(7);};
-document.querySelector('#eight').onclick = function(){setDisplay(8);};
-document.querySelector('#nine').onclick  = function(){setDisplay(9);};
-document.querySelector('#zero').onclick  = function(){setDisplay(0);};
+one.onclick   = function(){setDisplay(1);};
+two.onclick   = function(){setDisplay(2);};
+three.onclick = function(){setDisplay(3);};
+four.onclick  = function(){setDisplay(4);};
+five.onclick  = function(){setDisplay(5);};
+six.onclick   = function(){setDisplay(6);};
+seven.onclick = function(){setDisplay(7);};
+eight.onclick = function(){setDisplay(8);};
+nine.onclick  = function(){setDisplay(9);};
+zero.onclick  = function(){setDisplay(0);};
 
 // MATH
-document.querySelector('#add').onclick      = function(){setOperator(' + ')};
-document.querySelector('#subtract').onclick = function(){setOperator(' - ')};
-document.querySelector('#multiply').onclick = function(){setOperator(' * ')};
-document.querySelector('#divide').onclick   = function(){setOperator(' / ')};
-document.querySelector('#decimal').onclick  = function(){setDecimal()};
+add.onclick      = function(){setOperator(' + ')};
+subtract.onclick = function(){setOperator(' - ')};
+multiply.onclick = function(){setOperator(' * ')};
+divide.onclick   = function(){setOperator(' / ')};
+decimal.onclick  = function(){setDecimal()};
 
-document.querySelector('#equals').onclick = function(){evaluate()};
-document.querySelector('#clear').onclick = function(){
-    document.querySelector('.display').value = '';
-    document.querySelector('.formula').innerHTML = '';
+equals.onclick = function(){evaluate()};
+clear.onclick = function(){
+    display.value = '';
+    formula.innerHTML = '';
 };
 
 
 
 function setDisplay(num) {
-    document.querySelector('.display').value += num;
+    display.value += num;
     opInput = false;
-    console.log(document.querySelector('.display').value);
+    console.log(display.value);
     console.log(opInput);
 }
 
@@ -36,7 +60,7 @@ function setOperator(op) {
     if (opInput === true) {
         return console.log('Can\'t pass two operators');
     } else {
-        document.querySelector('.display').value += op;
+        display.value += op;
         opInput = true;
         decimalAdded = false;
     }
@@ -45,21 +69,22 @@ function setDecimal() {
     if (decimalAdded === true) {
         return console.log('Cannot have 2 decimals in a number');
     } else {
-        document.querySelector('.display').value += '.';
+        display.value += '.';
         decimalAdded = true;
     }
 }
 
 function evaluate() {
-    var inputString = document.querySelector('.display');
+    var inputString = display;
     var input = inputString.value;
     var answer = eval(input);
+    formula.innerHTML = input;
     inputString.value = answer;
-    document.querySelector('.formula').innerHTML = input;
     console.log(answer);
 }
 // MATH SELECTORS
 
+// NEW COMMENT PLZ DELETE
 
 // OTHER BUTTON SELECTORS
 var elPercent  = document.querySelector('#percent');
@@ -70,3 +95,25 @@ var elInput    = document.querySelector('.input');
 
 var decimalAdded = false;
 var opInput = true;
+
+window.addEventListener('keydown', function(e) {
+    if (e.keyCode >= 48 && e.keyCode <= 57 && e.shiftKey === false) {
+        console.log(e)
+        setDisplay(e.key)
+    } else if ((e.keyCode === 187 && e.shiftKey === false) || e.keyCode === 13) {
+        evaluate()
+    } else if (e.keyCode === 187 && e.shiftKey === true) {
+        setOperator(' + ')
+    } else if (e.keyCode === 189) {
+        setOperator(' - ')
+    } else if (e.keyCode === 56 && e.shiftKey === true) {
+        setOperator(' * ')
+    } else if (e.keyCode === 191) {
+        setOperator(' / ')
+    } else if (e.keyCode === 67) {
+        display.value = '';
+        formula.innerHTML = '';
+    } else if (e.keyCode === 190) {
+        setDecimal()
+    }
+});
