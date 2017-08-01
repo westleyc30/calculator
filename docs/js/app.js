@@ -85,6 +85,8 @@ function evaluate() {
 // MATH SELECTORS
 
 // NEW COMMENT PLZ DELETE
+// NEW COMMENT PLZ DELETE
+// NEW COMMENT PLZ DELETE
 
 // OTHER BUTTON SELECTORS
 var elPercent  = document.querySelector('#percent');
