@@ -7,3 +7,4 @@
   * ~~input moves up into the input section~~
   * ~~answer displayed in output section~~
 * design calculator
+* make sure the backspace button works nerd!
