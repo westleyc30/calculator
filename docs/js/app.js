@@ -11,8 +11,8 @@ const zero = document.querySelector('#zero')
 
 const add = document.querySelector('#add');
 const subtract = document.querySelector('#subtract');
-const divide = document.querySelector('#multiply');
-const multiply = document.querySelector('#divide');
+const multiply = document.querySelector('#multiply');
+const divide = document.querySelector('#divide');
 const decimal = document.querySelector('#decimal');
 
 const equals = document.querySelector('#equals');
